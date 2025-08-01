@@ -36,7 +36,8 @@ export function ThemeToggle() {
               ? "opacity-0 rotate-90 scale-0"
               : "opacity-100 rotate-0 scale-100"
           } ${isAnimating ? "animate-pulse" : ""}`}
-        />
+              />
+              
 
         {/* Moon Icon */}
         <i
