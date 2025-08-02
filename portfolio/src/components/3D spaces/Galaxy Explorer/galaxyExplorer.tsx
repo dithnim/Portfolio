@@ -151,27 +151,6 @@ export default function GalaxyPortfolio() {
       console.error("Error creating solar systems:", error);
     }
 
-    // Projects as planets (simple colored spheres)
-    const planetGeometry = new THREE.SphereGeometry(2, 32, 32);
-
-    const projects = [
-      {
-        name: "Portfolio",
-        position: [15, 0, 0] as [number, number, number],
-        color: 0x6b93d6,
-      },
-      {
-        name: "Blog",
-        position: [-20, 8, -8] as [number, number, number],
-        color: 0xffc649,
-      },
-      {
-        name: "Game Engine",
-        position: [0, -15, 15] as [number, number, number],
-        color: 0xcd5c5c,
-      },
-    ];
-
     // Lighting for better texture visibility
     const ambientLight = new THREE.AmbientLight(0x404040, 0.4); // Softer ambient light
     scene.add(ambientLight);

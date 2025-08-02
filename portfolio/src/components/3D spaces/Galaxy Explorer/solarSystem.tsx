@@ -48,6 +48,31 @@ const PLANET_TEXTURES: PlanetTextureData[] = [
     color: 0x4169e1,
     type: "ice",
   },
+  {
+    texture: "/textures/planet/8k_moon.jpg",
+    color: 0xc0c0c0,
+    type: "rocky",
+  },
+  {
+    texture: "/textures/planet/4k_ceres_fictional.jpg",
+    color: 0x8b7d6b,
+    type: "rocky",
+  },
+  {
+    texture: "/textures/planet/4k_eris_fictional.jpg",
+    color: 0xf0f8ff,
+    type: "ice",
+  },
+  {
+    texture: "/textures/planet/4k_haumea_fictional.jpg",
+    color: 0xffe4e1,
+    type: "ice",
+  },
+  {
+    texture: "/textures/planet/4k_makemake_fictional.jpg",
+    color: 0xdda0dd,
+    type: "ice",
+  },
 ];
 
 export interface Planet {
@@ -217,14 +242,14 @@ export class SolarSystem {
 
 export function createRandomSolarSystems(
   count: number,
-  spread: number = 1000
+  spread: number = 10000
 ): SolarSystem[] {
   const solarSystems: SolarSystem[] = [];
 
   for (let i = 0; i < count; i++) {
     const position = new THREE.Vector3(
       (Math.random() - 0.5) * spread,
-      (Math.random() - 0.5) * spread * 0.2, // Less spread in Y
+      (Math.random() - 0.5) * spread * 0.3, // Increased Y spread for more 3D distribution
       (Math.random() - 0.5) * spread
     );
 
