@@ -2,7 +2,7 @@
 import { Button } from "./ui/button";
 import VerticalDiv from "./ui/verticalDiv";
 
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "../controllers/theme-toggle";
 
 const Navbar = () => {
   return (

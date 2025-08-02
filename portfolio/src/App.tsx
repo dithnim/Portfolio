@@ -1,5 +1,5 @@
 import Navbar from "./components/navbar";
-import { ThemeProvider } from "./components/theme-provider";
+import { ThemeProvider } from "./controllers/theme-provider";
 
 function App() {
   return (
