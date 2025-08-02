@@ -126,7 +126,7 @@ export default function GalaxyPortfolio() {
       `,
       blending: THREE.AdditiveBlending,
       depthTest: false,
-      transparent: true,
+      transparent: false,
     });
 
     const stars = new THREE.Points(starGeometry, starMaterial);
@@ -171,19 +171,6 @@ export default function GalaxyPortfolio() {
         color: 0xcd5c5c,
       },
     ];
-
-    const planets = projects.map((proj) => {
-      const planetMaterial = new THREE.MeshStandardMaterial({
-        color: proj.color,
-        roughness: 0.7,
-        metalness: 0.1,
-      });
-      const planet = new THREE.Mesh(planetGeometry, planetMaterial);
-      planet.position.set(...proj.position);
-      planet.name = proj.name;
-      scene.add(planet);
-      return planet;
-    });
 
     // Lighting for better texture visibility
     const ambientLight = new THREE.AmbientLight(0x404040, 0.4); // Softer ambient light
@@ -250,16 +237,6 @@ export default function GalaxyPortfolio() {
           positions.array[i3 + 1] += velocities[i].y;
           positions.array[i3 + 2] += velocities[i].z;
 
-          // Add some orbital/circular motion
-          const time = Date.now() * 0.001;
-          const orbitRadius = 2;
-          const orbitSpeed = 0.5;
-
-          positions.array[i3] +=
-            Math.sin(time * orbitSpeed + i * 0.1) * orbitRadius * 0.01;
-          positions.array[i3 + 1] +=
-            Math.cos(time * orbitSpeed + i * 0.1) * orbitRadius * 0.01;
-
           // Reset star position if it goes too far from original position
           const currentPos = new THREE.Vector3(
             positions.array[i3],
@@ -288,9 +265,6 @@ export default function GalaxyPortfolio() {
       solarSystems.forEach((solarSystem) => {
         solarSystem.update(0.016); // Assuming 60fps
       });
-
-      // Rotate planets
-      planets.forEach((p) => (p.rotation.y += 0.01));
 
       renderer.render(scene, camera);
     };

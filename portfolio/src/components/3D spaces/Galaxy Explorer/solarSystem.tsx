@@ -86,6 +86,9 @@ export class SolarSystem {
     const sunRadius = Math.random() * 3 + 2; // 2-5 radius
     const sunGeometry = new THREE.SphereGeometry(sunRadius, 32, 32);
 
+    // Load sun texture
+    const sunTexture = this.textureLoader.load("/textures/suns/8k_sun.jpg");
+
     // Random sun colors (yellow, orange, red, white, blue)
     const sunColors = [
       0xffff00, // Yellow
@@ -98,11 +101,12 @@ export class SolarSystem {
 
     const sunColor = sunColors[Math.floor(Math.random() * sunColors.length)];
 
-    // Create glowing sun material
+    // Create glowing sun material with texture
     const sunMaterial = new THREE.MeshBasicMaterial({
+      map: sunTexture,
       color: sunColor,
-      transparent: true,
-      opacity: 0.9,
+      transparent: false,
+      opacity: 1.0,
     });
 
     this.sun = new THREE.Mesh(sunGeometry, sunMaterial);
